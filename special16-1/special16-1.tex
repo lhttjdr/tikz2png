@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,decorations,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,automata}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},
+  >=stealth',shorten >=1pt,auto,node distance=2cm,
+  every loop/.style={in=60,out=120,looseness=5}]
+  \node[initial,state,accepting,initial text=] (q0) {$q_0$};
+  \node[state] (q1) [right of=q0] {$q_1$};
+  \node[state,accepting] (q2) [right of=q1] {$q_2$};
+
+  \path[->] (q0)  edge [loop above] node[right=0.3cm] {$0$} (q0);
+  \path[->] (q1)  edge [loop above] node[right=0.3cm] {$0$} (q1);
+  \path[->] (q2)  edge [loop above] node[right=0.3cm] {$0$} (q2);
+
+  \path[->] (q0) edge node {$1$} (q1);
+  \path[->] (q1.10) edge node {$1$} (q2.170);
+  \path[->] (q2.190) edge node {$1$} (q1.-10);
+\end{tikzpicture}
+\end{document}

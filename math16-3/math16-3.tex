@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white}]
+    \coordinate (A) at (-2,4);
+    \coordinate (B) at (2,4);
+    % coordinate
+    \draw[->,thick] (-4,0)--(4,0); % x-axis
+    \node[anchor=north west] at (4,0) {\Large $x$};
+    \draw[->,thick] (-2.5,-1)--(-2.5,5); % y-axis
+    \node[anchor=south west] at (-2.5,5) {\Large $y$};
+    \node[anchor=south east] at (-2.5,0) {\Large $O$}; %origin
+    % A(-1,2)
+    \draw[dashed] (-2,0)--(-2,4);
+    \fill (A) circle (0.5mm) coordinate (A);
+    \node[anchor=south west] at (A) {\Large $P_0$};
+    \node[anchor=north] at (-2,0) {\Large $a$};
+    % B(1,2)
+    \draw[dashed] (2,0)--(2,4);
+    \fill (B) circle (0.5mm);
+    \node[anchor=north west] at (B) {\Large $P_4$};
+    \node[anchor=north] at (2,0) {\Large $b$};
+    % curve
+    \coordinate (P1) at (-1,2.5);
+    \coordinate (P2) at (0,2);
+    \draw[dashed] (P2)--(0,0);
+    \node[anchor=north] at (0,0) {\Large $x_i$};
+    \coordinate (P3) at (1,2.5);
+    \draw[dashed] (P3)--(1,0);
+    \node[anchor=north] at (1,0) {\Large $x_{i+1}$};
+    \draw plot[smooth] coordinates{(A)($(A)!1/2!(P1)+(0,-0.2)$)(P1)($(P1)!1/2!(P2)+(0,-0.1)$)(P2)($(P2)!1/2!(P3)+(0,-0.1)$)(P3)($(P3)!1/2!(B)+(0,-0.2)$)(B)};
+    \node[anchor=north west] at(0,3.2) {\Large $f(x)$};
+    \draw[color=red] (A)--(P1);
+    \fill[color=red] (P1) circle (0.5mm);
+    \node[anchor=north east] at (P1) {\Large $P_1$};
+    \draw[color=red] (P1)--(P2);
+    \fill[color=red] (P2) circle (0.5mm);
+    \node[anchor=north east] at (P2) {\Large $P_2$};
+    \draw[color=red] (P2)--(P3);
+    \fill[color=red] (P3) circle (0.5mm);
+    \node[anchor=north west] at (P3) {\Large $P_3$};
+    \draw[color=red] (P3)--(B);
+\end{tikzpicture}
+\end{document}

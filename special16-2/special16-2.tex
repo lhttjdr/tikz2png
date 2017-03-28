@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,decorations,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,automata}
+\usepackage[graphics,tightpage,active]{preview}
+\usepackage{wasysym}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},scale=2]
+  \node(f) at (1,4) {\Huge $\mars$};
+  \node[below of=f] (fg) {\Huge $Aa$};
+  \node at (3,3.5) {\Huge $\times$};
+  \node(m) at (5,4) {\Huge $\venus$};
+  \node[below of=m] (mg) {\Huge $Aa$};
+
+  \node(fA) at (0,2) {\Huge $A$};
+  \node(fa) at (2,2) {\Huge $a$};
+  \node(mA) at (4,2) {\Huge $A$};
+  \node(ma) at (6,2) {\Huge $a$};
+
+  \draw[->,thick] (fg.south west)--(fA.north);
+  \draw[->,thick] (fg.south east)--(fa.north);
+  \draw[->,thick] (mg.south east)--(ma.north);
+  \draw[->,thick] (mg.south west)--(mA.north);
+
+  \node(AA) at (0,0) {\Huge $AA$};
+  \node(Aa1) at (2,0) {\Huge $Aa$};
+  \node(Aa2) at (4,0) {\Huge $Aa$};
+  \node(aa) at (6,0) {\Huge $aa$};
+
+  \draw[->,thick] (fA.south)--(AA.north);
+  \draw[->,thick] (fa.south)--(Aa1.north);
+  \draw[->,thick] (mA.south)--(Aa2.north);
+  \draw[->,thick] (ma.south)--(aa.north);
+
+  \draw[->,thick] (fA.south east)--(Aa2.north west);
+  \draw[->,thick] (fa.south east)--(aa.north west);
+  \draw[->,thick] (mA.south west)--(AA.north east);
+  \draw[->,thick] (ma.south west)--(Aa1.north east);
+
+
+\end{tikzpicture}
+\end{document}

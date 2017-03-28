@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{tikz,amsmath,siunitx}
+\usetikzlibrary{arrows,decorations,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks,automata}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{equation}
+\PreviewEnvironment{equation*}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},scale=1]
+  \node[draw,ellipse] (s123) at (10,10) {$1,2,3$};
+
+  \node[draw,ellipse] (s015) at (7,8) {$0,1,5$};
+  \draw[->,arrows=-stealth, very thick] (s123.240)--(s015.30) node [midway, above, sloped] {$\frac{2}{11}$};
+  \node[draw,ellipse] (s312) at (10,8) {$3,1,2$};
+  \draw[->,arrows=-stealth, very thick] (s123.270)--(s312.90) node [midway, above, sloped] {$\frac{6}{11}$};
+  \node[draw,ellipse] (s042) at (13,8) {$0,4,2$};
+  \draw[->,arrows=-stealth, very thick] (s123.300)--(s042.150) node [midway, above, sloped] {$\frac{3}{11}$};
+
+  \node[draw,ellipse] (s204) at (7,6) {$2,0,4$};
+  \draw[->,arrows=-stealth, very thick] (s015.270)--(s204.90) node [midway, above, sloped] {$1$};
+
+  \node[draw,ellipse] (s231) at (13,6) {$2,3,1$};
+  \draw[->,arrows=-stealth, very thick] (s042.270)--(s231.90) node [midway, above, sloped] {$1$};
+
+  \draw[->,arrows=-stealth, very thick] (s312.240)--(s204.30) node [midway, above, sloped] {$\frac{3}{11}$};
+  \node[draw,ellipse] (s501) at (10,6) {$5,0,1$};
+  \draw[->,arrows=-stealth, very thick] (s312.270)--(s501.90) node [midway, above, sloped] {$\frac{2}{11}$};
+  \draw[->,arrows=-stealth, very thick] (s312.300)--(s231.150) node [midway, above, sloped] {$\frac{6}{11}$};
+
+  \draw[->,arrows=-stealth, very thick] (s204.60)--(s123.260) node [midway, above, sloped] {$1$};
+  \draw[->,arrows=-stealth, very thick] (s231.120)--(s123.280) node [midway, above, sloped] {$\frac{6}{11}$};
+
+  \node[draw,ellipse] (s420) at (13,4) {$4,2,0$};
+  \draw[->,arrows=-stealth, very thick] (s501.300)--(s420.150) node [midway, above, sloped] {$1$};
+
+
+  \draw[->,arrows=-stealth, very thick] (s231.270)--(s420.90) node [midway, above, sloped] {$\frac{3}{11}$};
+  \node[draw,ellipse] (s150) at (16,4) {$1,5,0$};
+  \draw[->,arrows=-stealth, very thick] (s231.300)--(s150.150) node [midway, above, sloped] {$\frac{2}{11}$};
+
+  \draw[->,arrows=-stealth, very thick] (s420.120)--(s312.280) node [midway, above, sloped] {$1$};
+  \draw[->,arrows=-stealth, very thick] (s150.120)--(s042.280) node [midway, above, sloped] {$1$};
+
+\end{tikzpicture}
+\end{document}
