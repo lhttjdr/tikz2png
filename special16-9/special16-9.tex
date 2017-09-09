@@ -1,0 +1,44 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usetikzlibrary{shapes,fit}
+
+\tikzset{
+    pics/vhsplit/.style n args = {2}{
+        code = {
+        \draw [draw] (0,1) rectangle (2,0.5);
+        \node[draw=none] at (1,0.75) {#1};
+        \draw [draw] (0,0.5) rectangle (1,0);
+        \draw [draw] (1,0.5) rectangle (2,0);
+        \node[draw=none] at (0.5,0.25) {\tiny{$<$}};
+        \node[draw=none] at (1.5,0.25) {\tiny{$>$}};
+        }
+    }
+}
+
+
+\begin{document}
+\begin{tikzpicture}%[every node/.append style={draw, rounded corners, inner sep=10pt}]
+    \path pic at (-3,0) {vhsplit={CAT}{}};
+    \coordinate(CAPs) at (-1.5,0);
+
+    \path pic at (0,-1.5) {vhsplit={CAP}{}};
+    \coordinate(CAPn) at (1,-0.5);
+    \coordinate(CAPEs) at (1.5,-1.5);
+
+    \path pic at (3,-3) {vhsplit={CAPE}{}};
+    \coordinate(CAPEn) at (4,-2);
+    \coordinate(REASONs) at (4.5,-3);
+
+    \path pic at (6,-4.5) {vhsplit={REASON}{}};
+    \coordinate(REASONn) at (7,-3.5);
+    \coordinate(RAINBOWs) at (6.5,-4.5);
+
+    \path pic at (3,-6) {vhsplit={RAINBOW}{}};
+    \coordinate(RAINBOWn) at (4,-5);
+
+    \draw [->,  thick] (CAPs)--(CAPn);
+    \draw [->,  thick] (CAPEs)--(CAPEn);
+    \draw [->,  thick] (REASONs)--(REASONn);
+    \draw [->, thick] (RAINBOWs)--(RAINBOWn);
+
+\end{tikzpicture}
+\end{document}

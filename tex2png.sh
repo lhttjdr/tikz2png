@@ -19,10 +19,10 @@ case $1 in
   delete)
       rm -rf $name
       ;;
-  clear)
+  clean)
       cd $name
       find . -type f -not \( -name '*.png' -or -name '*.tex' -or -name '*.sh' \) -delete
       ;;
   *)
-      echo "tex2png.sh create|build|view|delete|clear project_name"
+      echo "tex2png.sh create|build|view|delete|clean project_name"
 esac
